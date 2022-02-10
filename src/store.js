@@ -1,12 +1,14 @@
 import { createStore } from "redux";
 
+const initToDos = []
+
 const ADD = 'ADD';
 const DELETE = 'DELETE';
 
 export const addTodo = text => ({ type: ADD, text });
 export const deleteTodo = id => ({ type: DELETE, id });
 
-const reducer = (state = [], action) => {
+const reducer = (state = initToDos, action) => {
     switch (action.type) {
         case ADD:
             return [{ text: action.text, id: Date.now()}, ...state];
